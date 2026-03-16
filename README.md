@@ -3,6 +3,8 @@
 This is a template for creating mods for Quasimorph.
 It includes a basic structure for the mod, as well as some example code to get you started.
 
+Inspired by [NBKRedSpy's QM_Template](https://github.com/NBKRedSpy/QM_Template).
+
 ## Build Scripts
 
 The `scripts/` folder contains helper batch scripts for building the mod with `dotnet build`:
