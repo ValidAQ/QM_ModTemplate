@@ -1,0 +1,13 @@
+# Visual Studio files
+src/.vs/
+src/bin
+src/obj
+# The project is set up to build directly from .csproj, ignore solution files
+*.sln
+
+# Local libs for dependency integration (don't commit third-party DLLs)
+src/lib/
+
+# VS Code files
+*.code-workspace
+.vscode/

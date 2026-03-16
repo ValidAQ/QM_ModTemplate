@@ -1,0 +1,11 @@
+{
+	"UniqueModName": "valid_QM_ModTemplate",
+	"Assemblies": [
+		"QM_ModTemplate.dll"
+	],
+	"Dependencies": [],
+    "SteamTags": [
+        "Quality of Life",
+        "0.9.9"
+    ]
+}
