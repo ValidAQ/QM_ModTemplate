@@ -5,6 +5,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
   <PropertyGroup>
     <SteamId Condition="'$(SteamId)'=='' and Exists('../SteamWorkshopId.txt')">$([System.IO.File]::ReadAllText('$(MSBuildThisFileDirectory)../SteamWorkshopId.txt').Trim())</SteamId>
   </PropertyGroup>
