@@ -48,16 +48,18 @@ Write-Host ""
 Write-Host "Copying files..."
 
 $allFiles = Get-ChildItem -Path $SrcRoot -Recurse -File
+$excludeDirPrefixes = $ExcludeDirs | ForEach-Object {
+    ($_.Replace('\', '/') + '/').ToLower()
+}
 
 foreach ($file in $allFiles) {
-    $rel = $file.FullName.Substring($SrcRoot.Path.Length).TrimStart('\\')
+    $rel = $file.FullName.Substring($SrcRoot.Path.Length).TrimStart('\')
 
     # Skip if this file lives inside an excluded directory
     $skip = $false
-    $relLower = $rel.ToLower()
-    foreach ($excl in $ExcludeDirs) {
-        $exclLower = $excl.ToLower()
-        if ($relLower -eq $exclLower -or $relLower.StartsWith($exclLower + '\\')) {
+    $relNorm = $rel.Replace('\', '/').ToLower()
+    foreach ($excludePrefix in $excludeDirPrefixes) {
+        if ($relNorm.StartsWith($excludePrefix)) {
             $skip = $true
             break
         }
