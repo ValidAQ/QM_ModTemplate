@@ -50,12 +50,14 @@ Write-Host "Copying files..."
 $allFiles = Get-ChildItem -Path $SrcRoot -Recurse -File
 
 foreach ($file in $allFiles) {
-    $rel = $file.FullName.Substring($SrcRoot.Path.Length).TrimStart('\')
+    $rel = $file.FullName.Substring($SrcRoot.Path.Length).TrimStart('\\')
 
     # Skip if this file lives inside an excluded directory
     $skip = $false
+    $relLower = $rel.ToLower()
     foreach ($excl in $ExcludeDirs) {
-        if ($rel.ToLower().StartsWith($excl.ToLower())) {
+        $exclLower = $excl.ToLower()
+        if ($relLower -eq $exclLower -or $relLower.StartsWith($exclLower + '\\')) {
             $skip = $true
             break
         }
@@ -78,7 +80,7 @@ foreach ($file in $allFiles) {
         $null = New-Item -ItemType Directory -Path (Split-Path $destFile) -Force
 
         # Replace content for text files; binary-copy everything else
-        $textExtensions = @('.cs', '.csproj', '.sln', '.json', '.md', '.ps1', '.txt', '.xml', '.props', '.targets', '.config', '.yaml', '.yml')
+        $textExtensions = @('.cs', '.csproj', '.sln', '.json', '.md', '.ps1', '.txt', '.xml', '.props', '.targets', '.config', '.yaml', '.yml', '.gitignore')
         if ($textExtensions -contains $file.Extension.ToLower()) {
             $content = [System.IO.File]::ReadAllText($file.FullName, $utf8NoBom)
             $content = $content.Replace($OldName, $NewName)
