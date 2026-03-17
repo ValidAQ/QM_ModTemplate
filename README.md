@@ -23,9 +23,11 @@ The `scripts/` folder contains helper scripts for creating a new project from th
 
 ### In-game modding commands
 
-* `mod_createworkshopitem` - Create Steam Workshop item. Warning! This command will create a new entity in Steam. Syntax: `mod_createworkshopitem <contentPath>`
+* `mod_createworkshopitem` - Create Steam Workshop item. **Warning!** This command will create a new entity in Steam.
+  * Syntax: `mod_createworkshopitem <contentPath>`
 
-* `mod_updateworkshopitem` - Update Steam Workshop item. Syntax: `mod_updateworkshopitem <item_id> <contentPath> <update_thumbnail:TRUE|FALSE>`
+* `mod_updateworkshopitem` - Update Steam Workshop item.
+  * Syntax: `mod_updateworkshopitem <item_id> <contentPath> <update_thumbnail:TRUE|FALSE>`
 
 * `mod_listworkshopitems` - List all Steam Workshop items created by the current user.
 
