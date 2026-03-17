@@ -3,18 +3,33 @@
 This is a template for creating mods for Quasimorph.
 It includes a basic structure for the mod, as well as some example code to get you started.
 
+Information partially lifted from the official [Quasimorph modding guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3281671312).
+
 Inspired by [NBKRedSpy's QM_Template](https://github.com/NBKRedSpy/QM_Template).
 
 ## Build Scripts
 
-The `scripts/` folder contains helper batch scripts for building the mod with `dotnet build`:
+The `scripts/` folder contains helper scripts for creating a new project from the template and building the mod with `dotnet build`.
 
-| Script | Purpose |
-|---|---|
-| `scripts/build_local.bat` | Build locally; output stays in `src/bin/`. |
-| `scripts/build_steam.bat` | Build and deploy to the Steam Workshop folder (reads the item ID from `SteamWorkshopId.txt`). |
+## Workshop Mod Creation
 
-Run either script from the repository root or from inside `scripts/`.
+* First, prepare your mod content and place it in a folder. The folder should contain a `modmanifest.json` file with the required fields, and preferably a thumbnail image named `thumbnail.png`.
+
+* In game, run the console command `mod_createworkshopitem` where contentPath is the path to the folder. During command execution, a Steam Workshop item with initial content will be created. Save the shown item ID in `SteamWorkshopId.txt`.
+
+* To update mod content, run the console command `mod_updateworkshopitem` with the saved item ID and content path. If you want to upload a thumbnail add `TRUE` as the third parameter. Thumbnail should be placed in `contentpath/thumbnail.png`. This is the only way to upload a mod thumbnail.
+
+* Don’t forget to subscribe to your mod and make it visible to other users after it is ready.
+
+### In-game modding commands
+
+* `mod_createworkshopitem` - Create Steam Workshop item. Warning! This command will create a new entity in Steam. Syntax: `mod_createworkshopitem <contentPath>`
+
+* `mod_updateworkshopitem` - Update Steam Workshop item. Syntax: `mod_updateworkshopitem <item_id> <contentPath> <update_thumbnail:TRUE|FALSE>`
+
+* `mod_listworkshopitems` - List all Steam Workshop items created by the current user.
+
+* `listmod` - List all mods currently active.
 
 ## Mod Configuration Menu (MCM) Integration
 
