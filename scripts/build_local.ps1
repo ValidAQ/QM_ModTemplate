@@ -1,16 +1,16 @@
 <#
 .SYNOPSIS
-    Builds the mod locally without deploying.
+    Builds the mod and stages the output to the build/ subfolder.
 .DESCRIPTION
     Finds the .csproj in the src/ folder and runs a Release build.
-    DeployPath is left empty so output stays in the default bin/Release folder.
+    The compiled DLL and modmanifest.json are copied to <project root>/build/.
 .EXAMPLE
     .\scripts\build_local.ps1
 #>
 [CmdletBinding()]
 param()
 
-$Root  = Resolve-Path (Join-Path $PSScriptRoot '..')
+$Root   = Resolve-Path (Join-Path $PSScriptRoot '..')
 $csproj = Get-ChildItem -Path (Join-Path $Root 'src') -Filter '*.csproj' | Select-Object -First 1
 
 if (-not $csproj) {
@@ -18,9 +18,11 @@ if (-not $csproj) {
     exit 1
 }
 
-dotnet build $csproj.FullName -c Release /p:DeployPath=
+$BuildDir = Join-Path $Root 'build'
+
+dotnet build $csproj.FullName -c Release /p:DeployPath="$BuildDir\\"
 if ($LASTEXITCODE -ne 0) {
     Write-Error 'Build failed.'
     exit $LASTEXITCODE
 }
-Write-Host 'Build succeeded.'
+Write-Host "Build succeeded. Mod contents staged to: $BuildDir"

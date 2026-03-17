@@ -5,9 +5,12 @@ src/obj
 # The project is set up to build directly from .csproj, ignore solution files
 *.sln
 
-# Local libs for dependency integration (don't commit third-party DLLs)
-src/lib/
-
 # VS Code files
 *.code-workspace
 .vscode/
+
+# Local libs for dependency integration (don't commit third-party DLLs)
+src/lib/
+
+# Local build output
+build/
