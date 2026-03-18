@@ -59,6 +59,14 @@ Download a release from https://github.com/Crynano/Mod-Configuration-Menu and pl
 
 Edit `src/McmIntegration.cs`. The `Register()` method shows where to add `IConfigValue` entries and how to apply saved values back to `Plugin.Config`.
 
+## Mod Compatibility
+
+This mod patches the following game classes. Other mods that patch the same methods may conflict.
+
+| Class | Method | Patch type |
+| - | - | - |
+| `MGSC.ExampleClass` | `Awake` | Postfix |
+
 # Source Code
 Source code is available on GitHub at https://github.com/<USER>/<PROJECT>
 
