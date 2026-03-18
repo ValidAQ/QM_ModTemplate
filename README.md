@@ -51,6 +51,9 @@ Download a release from https://github.com/Crynano/Mod-Configuration-Menu and pl
 
 Edit `src/McmIntegration.cs`. The `Register()` method shows where to add `IConfigValue` entries and how to apply saved values back to `Plugin.Config`.
 
+# Source Code
+Source code is available on GitHub at https://github.com/<USER>/<PROJECT>
+
 ## Changelog
 
 ### 1.0.0
