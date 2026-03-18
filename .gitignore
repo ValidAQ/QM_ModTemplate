@@ -7,7 +7,6 @@ src/obj
 
 # VS Code files
 *.code-workspace
-.vscode/
 
 # Local libs for dependency integration (don't commit third-party DLLs)
 src/lib/
