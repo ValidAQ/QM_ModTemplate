@@ -17,17 +17,25 @@ The `scripts/` folder contains helper scripts for creating a new project from th
 
 * In game, run the console command `mod_createworkshopitem` where contentPath is the path to the folder. During command execution, a Steam Workshop item with initial content will be created. Save the shown item ID in `SteamWorkshopId.txt`.
 
+```
+mod_createworkshopitem <contentPath>
+```
+
+* The item will appear in the Steam Workshop at https://steamcommunity.com/sharedfiles/filedetails/?id=ITEM_ID, where you can edit its description, add screenshots, etc.
+
 * To update mod content, run the console command `mod_updateworkshopitem` with the saved item ID and content path. If you want to upload a thumbnail add `TRUE` as the third parameter. Thumbnail should be placed in `contentpath/thumbnail.png`. This is the only way to upload a mod thumbnail.
+
+```
+mod_updateworkshopitem <item_id> <contentPath> <update_thumbnail:TRUE|FALSE>
+```
 
 * Don’t forget to subscribe to your mod and make it visible to other users after it is ready.
 
 ### In-game modding commands
 
 * `mod_createworkshopitem` - Create Steam Workshop item. **Warning!** This command will create a new entity in Steam.
-  * Syntax: `mod_createworkshopitem <contentPath>`
 
 * `mod_updateworkshopitem` - Update Steam Workshop item.
-  * Syntax: `mod_updateworkshopitem <item_id> <contentPath> <update_thumbnail:TRUE|FALSE>`
 
 * `mod_listworkshopitems` - List all Steam Workshop items created by the current user.
 
