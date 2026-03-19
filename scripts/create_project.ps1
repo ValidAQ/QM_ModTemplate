@@ -82,7 +82,23 @@ foreach ($file in $allFiles) {
         $null = New-Item -ItemType Directory -Path (Split-Path $destFile) -Force
 
         # Replace content for text files; binary-copy everything else
-        $textExtensions = @('.cs', '.csproj', '.sln', '.json', '.md', '.ps1', '.txt', '.xml', '.props', '.targets', '.config', '.yaml', '.yml', '.gitignore')
+        $textExtensions = @(
+            '.cs',
+            '.csproj',
+            '.sln',
+            '.slnx',
+            '.json',
+            '.md',
+            '.ps1',
+            '.txt',
+            '.xml',
+            '.props',
+            '.targets',
+            '.config',
+            '.yaml',
+            '.yml',
+            '.gitignore'
+        )
         if ($textExtensions -contains $file.Extension.ToLower()) {
             $content = [System.IO.File]::ReadAllText($file.FullName, $utf8NoBom)
             $content = $content.Replace($OldName, $NewName)
