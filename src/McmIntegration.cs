@@ -64,7 +64,7 @@ namespace QM_ModTemplate
             };
 
             ModConfigMenuAPI.RegisterModConfig(
-                modName: "QM ModTemplate",  // Display name shown in the MCM mod list.
+                modName: "QM_ModTemplate",  // Display name shown in the MCM mod list.
                 configData: configValues,
                 OnConfigSaved: (Dictionary<string, object> currentConfig, out string feedback) =>
                 {
