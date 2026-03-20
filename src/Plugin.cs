@@ -37,8 +37,8 @@ namespace QM_ModTemplate
             State = context.State;
 
             // Ensure the persistence folder exists before reading/writing mod data.
-            Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
-            Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
+            // Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
+            // Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
 
 #if MCM_PRESENT
             // Register with Mod Configuration Menu if it is installed.
