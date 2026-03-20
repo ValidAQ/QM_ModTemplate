@@ -8,7 +8,11 @@
 			"label": "Build Local",
 			"type": "shell",
 			"command": "pwsh",
-			"args": ["-NoProfile", "-File", "${workspaceFolder}/scripts/build_local.ps1"],
+			"args": [
+				"-NoProfile",
+				"-File",
+				"${workspaceFolder}/scripts/build_local.ps1"
+			],
 			"group": {
 				"kind": "build",
 				"isDefault": true
@@ -23,7 +27,11 @@
 			"label": "Build Steam",
 			"type": "shell",
 			"command": "pwsh",
-			"args": ["-NoProfile", "-File", "${workspaceFolder}/scripts/build_steam.ps1"],
+			"args": [
+				"-NoProfile",
+				"-File",
+				"${workspaceFolder}/scripts/build_steam.ps1"
+			],
 			"group": "build",
 			"presentation": {
 				"reveal": "always",
@@ -32,10 +40,32 @@
 			"problemMatcher": "$msCompile"
 		},
 		{
+			"label": "Format Steam README",
+			"type": "shell",
+			"command": "pwsh",
+			"args": [
+				"-NoProfile",
+				"-File",
+				"${workspaceFolder}/scripts/markdown_to_steam.ps1"
+			],
+			"group": "none",
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
 			"label": "Create Project",
 			"type": "shell",
 			"command": "pwsh",
-			"args": ["-NoProfile", "-File", "${workspaceFolder}/scripts/create_project.ps1", "-NewName", "${input:newName}"],
+			"args": [
+				"-NoProfile",
+				"-File",
+				"${workspaceFolder}/scripts/create_project.ps1",
+				"-NewName",
+				"${input:newName}"
+			],
 			"group": "none",
 			"presentation": {
 				"reveal": "always",

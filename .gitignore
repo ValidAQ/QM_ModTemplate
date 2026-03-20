@@ -11,5 +11,6 @@ src/obj
 # Local libs for dependency integration (don't commit third-party DLLs)
 src/lib/
 
-# Local build output
+# Local files
 build/
+README.steam.txt

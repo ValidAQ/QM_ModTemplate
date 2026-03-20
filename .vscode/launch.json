@@ -19,6 +19,13 @@
 			"args": []
 		},
 		{
+			"name": "Format Steam README",
+			"type": "PowerShell",
+			"request": "launch",
+			"script": "${workspaceFolder}/scripts/markdown_to_steam.ps1",
+			"args": []
+		},
+		{
 			"name": "Create Project",
 			"type": "PowerShell",
 			"request": "launch",
