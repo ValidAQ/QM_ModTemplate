@@ -5,6 +5,8 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
+using QM_ModTemplate.LocalizationSupport;
+
 namespace QM_ModTemplate
 {
     /// <summary>
@@ -28,6 +30,17 @@ namespace QM_ModTemplate
         public static State State { get; private set; }
 
         /// <summary>
+        /// Loads localization dictionary from embedded resources.
+        /// </summary>
+        private static void LoadLocalization()
+        {
+            LocalizationFileLoader.LoadFromEmbeddedJson(
+                "QM_ModTemplate.localization.json",
+                Assembly.GetExecutingAssembly(),
+                Logger.LogError);
+        }
+
+        /// <summary>
         /// Called by the game after all configs have been loaded.
         /// Initializes mod state, loads config from disk, and applies Harmony patches.
         /// </summary>
@@ -48,6 +61,8 @@ namespace QM_ModTemplate
 
             try
             {
+                // Call this if you have localization entries to load.
+                // LoadLocalization();
                 new Harmony(HarmonyId).PatchAll(Assembly.GetExecutingAssembly());
                 Logger.Log("Harmony patches applied.");
             }

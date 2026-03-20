@@ -64,6 +64,22 @@
     </Reference>
   </ItemGroup>
 
+
+  <!-- Embedded resources: these are included in the compiled DLL and can be accessed at runtime.
+       LogicalName is optional but recommended to avoid conflicts and clarify usage. -->
+  <!-- Embedded images and sprites. -->
+  <!-- <ItemGroup>
+    <EmbeddedResource Include="..\media\Example_Image.png">
+      <LogicalName>QM_ModTemplate.Example_Image.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup> -->
+  <!-- Embedded localization file, used in LocalizationSupport. -->
+  <!-- <ItemGroup>
+    <EmbeddedResource Include="Localization\QM_ModTemplate.localization.json">
+      <LogicalName>QM_ModTemplate.localization.json</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup> -->
+
   <!-- Optional: Mod Configuration Menu (MCM) integration.
        MCM.dll is located by checking, in order:
          1. src/lib/MCM.dll  (manual download)
