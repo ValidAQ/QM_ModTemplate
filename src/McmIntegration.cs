@@ -51,13 +51,23 @@ namespace QM_ModTemplate
             //   StringConfig   — read-only label
             //
             // Example:
-            //   new ConfigValue(
-            //       key: "EnableFeature",
-            //       value: Plugin.Config.EnableFeature,
-            //       header: "General",
-            //       defaultValue: true,
-            //       tooltip: "Toggle the main feature on or off.",
-            //       label: "Enable Feature"),
+            // new ConfigValue(
+            //     key: "EnableFeature",
+            //     value: Plugin.Config.EnableFeature,
+            //     header: "General",
+            //     defaultValue: true,
+            //     tooltip: "Toggle the main feature on or off.",
+            //     label: "Enable Feature"),
+            //
+            // var sortModeOptions = new List<object> { manualOnlySortName, manualAndAutoSortName };
+            // new DropdownConfig(
+            //     key: "SortingMode",
+            //     value: Plugin.Config.SortingMode == SortingModeOptions.ManualOnly ? manualOnlySortName : manualAndAutoSortName,
+            //     header: "Sorting",
+            //     defaultValue: manualAndAutoSortName,
+            //     tooltip: $"In {manualOnlySortName} mode, the button locks/unlocks the list order. In {manualAndAutoSortName} mode, the button cycles through all enabled sort modes.",
+            //     label: "Sort Mode",
+            //     orderedDropdownOptions: sortModeOptions),
             var configValues = new List<IConfigValue>
             {
                 // TODO: add your IConfigValue entries here.
