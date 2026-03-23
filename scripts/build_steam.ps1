@@ -44,6 +44,9 @@ if (Test-Path $tmpPath) {
     if ($workshopPath) {
         Write-Host ""
         Write-Host "To publish this version, run in the in-game console:"
-        Write-Host "  mod_updateworkshopitem $steamId $workshopPath TRUE"
+        $cmd = "mod_updateworkshopitem $steamId $workshopPath TRUE"
+        Write-Host "  $cmd"
+        Set-Clipboard $cmd
+        Write-Host "Copied to clipboard."
     }
 }
